@@ -4,7 +4,7 @@
     <div class="container-fluid">
       <div class="row">
         <Menu></Menu>
-          <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" style="top: 1.5rem;">
             <router-view></router-view>
           </main>
       </div>

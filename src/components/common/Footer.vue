@@ -1,5 +1,7 @@
 <template>
-  <div>{{ this.name }}</div>
+  <figure class="figure">
+    <figcaption class="figure-caption text-xs-right">footer</figcaption>
+  </figure>
 </template>
 
 <script>

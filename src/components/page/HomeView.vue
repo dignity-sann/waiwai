@@ -63,18 +63,19 @@
 export default {
   data () {
     return {
+      name: 'test'
     }
   },
   methods: {
   },
-  beforeCreate: function () {},
-  created: function () {},
-  beforeMount: function () {},
-  mouted: function () {},
-  beforeUpdate: function () {},
-  updated: function () {},
-  beforeDestory: function () {},
-  destroyed: function () {}
+  beforeCreate () {},
+  created () {},
+  beforeMount () {},
+  mounted () {},
+  beforeUpdate () {},
+  updated () {},
+  beforeDestory () {},
+  destroyed () {}
 }
 </script>
 
