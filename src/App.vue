@@ -14,9 +14,9 @@
 </template>
 
 <script>
-import Header from './components/common/Header'
-import Footer from './components/common/Footer'
-import Menu from './components/common/Menu'
+import Header from './components/modules/Header'
+import Footer from './components/modules/Footer'
+import Menu from './components/modules/Menu'
 
 export default {
   components: {

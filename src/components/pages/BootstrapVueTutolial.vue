@@ -49,6 +49,29 @@
     <b-button @click="showDismissibleAlert=true" variant="info" class="m-1">
       Show dismissible alert ({{ showDismissibleAlert ? 'visible' : 'hidden' }})
     </b-button>
+
+    <b-button v-b-modal.channelItem>Show Modal</b-button>
+    <b-modal
+      id="channelItem"
+      size="xl"
+      title="iiii"
+      scrollable="true"
+      centered="true"
+      hide-footer="true"
+    >
+      <ul class="list-unstyled">
+          <b-media
+            tag="li"
+            vertical-align="center"
+            v-for="(item, index) in items" :key="index"
+          >
+            <template v-slot:aside>
+              <b-img :src="item.snippet.thumbnails.default.url" width="64"></b-img>
+            </template>
+            <h5 class="mt-0 mb-1">{{ item.snippet.title }}</h5>
+          </b-media>
+      </ul>
+    </b-modal>
   </div>
 </template>
 
@@ -58,7 +81,9 @@ export default {
     return {
       dismissSecs: 10,
       dismissCountDown: 0,
-      showDismissibleAlert: false
+      showDismissibleAlert: false,
+      items: [],
+      nextToken: ''
     }
   },
   methods: {
@@ -67,12 +92,30 @@ export default {
     },
     showAlert () {
       this.dismissCountDown = this.dismissSecs
+    },
+    getPlayListItems (playListId) {
+      const maxResults = '20'
+      const part = 'snippet'
+      const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=${part}&playlistId=${playListId}&maxResults=${maxResults}&pageToken=${this.nextToken}&key=${this.$config.VUE_APP_YOUTUBE_API_KEY}`
+      const self = this
+      this.$axios.get(url)
+        .then(function (res) {
+          // success
+          self.items = self.items.concat(res.data.items)
+          self.nextToken = res.data.nextPageToken
+        })
+        .catch(function (error) {
+          // error
+          console.log(`Error! HTTP Status: ${error.response.status} ${error.response.statusText}`)
+        })
     }
   },
   beforeCreate: function () {},
   created: function () {},
   beforeMount: function () {},
-  mounted () {},
+  mounted () {
+    this.getPlayListItems('PLWTfVW0mnPhmIuQyW6eFgHa1AF3lYsw-7')
+  },
   beforeUpdate: function () {},
   updated: function () {},
   beforeDestory: function () {},

@@ -2,36 +2,6 @@
   <nav class="col-md-2 d-none d-md-block bg-light sidebar">
     <div class="sidebar-sticky">
       <ul class="nav flex-column">
-        <!-- <li class="nav-item">
-          <router-link tag="a" class="nav-link active" to="/home" exact>
-            <v-fa icon="home"/>&nbsp;Home
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link tag="a" class="nav-link active" to="/twitter">
-            <v-fa :icon="['fab', 'twitter']"/>&nbsp;Twitter
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link tag="a" class="nav-link active" to="/youtube">
-            <v-fa :icon="['fab', 'youtube']"/>&nbsp;Youtube
-          </router-link>
-        </li>
-        <li class="nav-item">
-          <router-link tag="a" class="nav-link active" to="/instagram">
-            <v-fa :icon="['fab', 'instagram']"/>&nbsp;Instagram
-          </router-link>
-        </li>
-        <li class="nav-item" active>
-          <router-link tag="a" class="nav-link active" to="/bv-tuto">
-            <v-fa icon="code"/>&nbsp;sand box
-          </router-link>
-        </li>
-        <li class="nav-item" active>
-          <router-link tag="a" class="nav-link active" to="/anime">
-            <v-fa icon="at"/>&nbsp;anime
-          </router-link>
-        </li> -->
         <li
           class="nav-item"
           v-for="(item, index) in filterMenu()" :key="index"
@@ -48,9 +18,15 @@
 </template>
 
 <script>
+import Slider from '@jeremyhamm/vue-slider'
+
 export default {
+  components: {
+    Slider
+  },
   data () {
     return {
+      // TODO router読み込みにしたい
       menuItems: [
         {
           name: 'home',
@@ -60,17 +36,17 @@ export default {
         }, {
           name: 'twitter',
           to: '/twitter',
-          icon: "['fab', 'twitter']",
+          icon: ['fab', 'twitter'],
           order: -1
         }, {
           name: 'youtube',
           to: '/youtube',
-          icon: '[fab, youtube]',
+          icon: ['fab', 'youtube'],
           order: -1
         }, {
           name: 'instagram',
           to: '/instagram',
-          icon: '[fab, instagram]',
+          icon: ['fab', 'instagram'],
           order: -1
         }, {
           name: 'sand box',

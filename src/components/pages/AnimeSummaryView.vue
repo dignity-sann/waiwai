@@ -20,12 +20,12 @@
         class="col-3">
         <b-card
           :title="item.title_short1"
-          img-src="サムネ表示させたい"
+          :img-src="`https://s.wordpress.com/mshots/v1/${item.public_url}?w=250`"
           img-alt="Image"
           img-top
           tag="article"
           style="max-width: 20rem;"
-          class="mb-2"
+          class="mb-2 h-100"
         >
           <b-card-text >
             {{ item.title }}

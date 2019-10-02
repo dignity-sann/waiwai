@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HomeView from '@/components/page/HomeView'
-import TwitterView from '@/components/page/TwitterView'
-import YoutubeView from '@/components/page/YoutubeView'
-import InstagramView from '@/components/page/InstagramView'
-import BootstrapVueTutolial from '@/components/page/BootstrapVueTutolial'
-import AnimeSummaryView from '@/components/page/AnimeSummaryView'
+import HomeView from '@/components/pages/HomeView'
+import TwitterView from '@/components/pages/TwitterView'
+import YoutubeView from '@/components/pages/YoutubeView'
+import InstagramView from '@/components/pages/InstagramView'
+import BootstrapVueTutolial from '@/components/pages/BootstrapVueTutolial'
+import AnimeSummaryView from '@/components/pages/AnimeSummaryView'
 
 Vue.use(Router)
 
